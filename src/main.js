@@ -10,33 +10,35 @@ const optionList     = [rock, paper, scissors, lizard, spock]
 const _getRandomNumber =  (maxNumber) => Math.floor(Math.random() * maxNumber.length)
 const getCpuSelection = () => optionList[_getRandomNumber(optionList)]
 
+const emojiMap = {
+  rock:     '✊',
+  paper:    '✋',
+  scissors: '✌️',
+  lizard:   '🫳',
+  spock:    '🖖'
+}
+
 function playGame(userSelection) {
   const cpuSelection = getCpuSelection()
 
   if (userSelection.name === cpuSelection.name) {
-    document.getElementById('user-selection').textContent =
-      `Tu jugada: ${userSelection.name}`
-    document.getElementById('cpu-selection').textContent =
-      `Jugada CPU: ${cpuSelection.name}`	
+    document.getElementById('user-selection').textContent = emojiMap[userSelection.name]
+    document.getElementById('cpu-selection').textContent = emojiMap[cpuSelection.name]	
     document.getElementById('result').textContent =
       'Resultado: ¡Empate! 🤝'
     return
   }
 
   if (userSelection.enemieList.includes(cpuSelection.name)) {
-    document.getElementById('user-selection').textContent =
-      `Tu jugada: ${userSelection.name}`
-    document.getElementById('cpu-selection').textContent =
-      `Jugada CPU: ${cpuSelection.name}`
+    document.getElementById('user-selection').textContent = emojiMap[userSelection.name]
+    document.getElementById('cpu-selection').textContent = emojiMap[cpuSelection.name]
     document.getElementById('result').textContent =
       'Resultado: ¡Has perdido! 😢'
     return
   }
 
-  document.getElementById('user-selection').textContent =
-    `Tu jugada: ${userSelection.name}`
-  document.getElementById('cpu-selection').textContent =
-    `Jugada CPU: ${cpuSelection.name}`
+  document.getElementById('user-selection').textContent = emojiMap[userSelection.name]
+  document.getElementById('cpu-selection').textContent = emojiMap[cpuSelection.name]
   document.getElementById('result').textContent =
     'Resultado: ¡Has ganado 🎉'
 }
