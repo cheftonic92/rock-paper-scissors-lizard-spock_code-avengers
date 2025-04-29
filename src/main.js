@@ -8,7 +8,7 @@ const spock    = { name: 'spock',    enemieList: ['paper',   'lizard'] }
 
 const optionList     = [rock, paper, scissors, lizard, spock]
 const _getRandomNumber =  (maxNumber) => Math.floor(Math.random() * maxNumber.length)
-const getCpuSelection = () => optionList[_getRandomNumber(optionList)]
+const _setCpuSelection = () => optionList[_getRandomNumber(optionList)].name
 
 const emojiMap = {
   rock:     '✊',
@@ -19,28 +19,28 @@ const emojiMap = {
 }
 
 function playGame(userSelection) {
-  const cpuSelection = getCpuSelection()
+  const cpuSelection = _setCpuSelection()
 
-  if (userSelection.name === cpuSelection.name) {
+  if (userSelection.name === cpuSelection) {
     document.getElementById('user-selection').textContent = emojiMap[userSelection.name]
-    document.getElementById('cpu-selection').textContent = emojiMap[cpuSelection.name]	
+    document.getElementById('cpu-selection').textContent = emojiMap[cpuSelection]	
     document.getElementById('result').textContent =
-      'Resultado: ¡Empate! 🤝'
+      '¡Empate! 🤝'
     return
   }
 
-  if (userSelection.enemieList.includes(cpuSelection.name)) {
+  if (userSelection.enemieList.includes(cpuSelection)) {
     document.getElementById('user-selection').textContent = emojiMap[userSelection.name]
-    document.getElementById('cpu-selection').textContent = emojiMap[cpuSelection.name]
+    document.getElementById('cpu-selection').textContent = emojiMap[cpuSelection]
     document.getElementById('result').textContent =
-      'Resultado: ¡Has perdido! 😢'
+      '¡Has perdido! 😢'
     return
   }
 
   document.getElementById('user-selection').textContent = emojiMap[userSelection.name]
-  document.getElementById('cpu-selection').textContent = emojiMap[cpuSelection.name]
+  document.getElementById('cpu-selection').textContent = emojiMap[cpuSelection]
   document.getElementById('result').textContent =
-    'Resultado: ¡Has ganado 🎉'
+    '¡Has ganado 🎉'
 }
 
 window.rock     = rock
