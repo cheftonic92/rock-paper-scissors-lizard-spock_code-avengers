@@ -26,7 +26,7 @@ Cada miembro del equipo deberá crearse su propia rama para efectuar los cambios
 
 ###	CleanCode
 
-Definición de nombres y funciones usando camelCase
+Definición de nombres y funciones en inglés usando camelCase
 
 Usar funciones con una única responsabilidad (Principios SOLID)
 
