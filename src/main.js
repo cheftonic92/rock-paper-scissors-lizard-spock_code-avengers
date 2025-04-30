@@ -22,24 +22,24 @@ function playGame(userSelection) {
   const cpuSelection = _setCpuSelection()
 
   if (userSelection.name === cpuSelection) {
-    document.getElementById('user-selection').textContent = emojiMap[userSelection.name]
-    document.getElementById('cpu-selection').textContent = emojiMap[cpuSelection]	
-    document.getElementById('result').textContent =
+    document.querySelector('#user-selection').textContent = emojiMap[userSelection.name]
+    document.querySelector('#cpu-selection').textContent = emojiMap[cpuSelection]	
+    document.querySelector('#result').textContent =
       '¡Empate! 🤝'
     return
   }
 
   if (userSelection.enemieList.includes(cpuSelection)) {
-    document.getElementById('user-selection').textContent = emojiMap[userSelection.name]
-    document.getElementById('cpu-selection').textContent = emojiMap[cpuSelection]
-    document.getElementById('result').textContent =
+    document.querySelector('#user-selection').textContent = emojiMap[userSelection.name]
+    document.querySelector('#cpu-selection').textContent = emojiMap[cpuSelection]
+    document.querySelector('#result').textContent =
       '¡Has perdido! 😢'
     return
   }
 
-  document.getElementById('user-selection').textContent = emojiMap[userSelection.name]
-  document.getElementById('cpu-selection').textContent = emojiMap[cpuSelection]
-  document.getElementById('result').textContent =
+  document.querySelector('#user-selection').textContent = emojiMap[userSelection.name]
+  document.querySelector('#cpu-selection').textContent = emojiMap[cpuSelection]
+  document.querySelector('#result').textContent =
     '¡Has ganado 🎉'
 }
 
