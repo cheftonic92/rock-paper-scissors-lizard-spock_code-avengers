@@ -12,6 +12,8 @@ Mantener la lógica original de juego sin modificaciones fundamentales.
 
 Incorporar mejoras: conteo regresivo, emojis en lugar de texto, uso de Vite.
 
+Incorporar tu link de github con tu nombre en el footer.
+
 ###	Metodología Gitflow
 
 #	Ramas principales:
