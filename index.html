@@ -1,12 +1,43 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Code Avengers</title>
-  </head>
-  <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.js"></script>
-  </body>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Code Avengers</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+</head>
+<body>
+  <h1>ROCK PAPER SCISSORS LIZARD SPOCK</h1>
+  <h2>by Code Avengers</h2>
+
+  <div class="d-flex justify-content-center align-items-center gap-3 my-5">
+    <div class="d-flex justify-content-center flex-column gap-2 p-0" id="choices">
+      <button class="btn btn-secondary btn-sm btn-choices" onclick="playGame(rock)">✊</button>
+      <button class="btn btn-secondary btn-sm btn-choices" onclick="playGame(paper)">✋</button>
+      <button class="btn btn-secondary btn-sm btn-choices" onclick="playGame(scissors)">✌️</button>
+      <button class="btn btn-secondary btn-sm btn-choices" onclick="playGame(lizard)">🫳</button>
+      <button class="btn btn-secondary btn-sm btn-choices" onclick="playGame(spock)">🖖</button>
+    </div>
+    <div>
+      <h5>Your play</h5>
+      <div id="user-selection" class="play-box"></div>
+    </div>
+    
+    <div>
+      <h5>CPU play</h5>
+      <div id="cpu-selection"  class="play-box"></div>
+    </div>
+  </div>
+  <div id="result" class="vs-box">VS</div>
+
+  <footer class="text-center mt-5">
+    <hr />
+    <h5>Developers</h5>
+    <div id="contributors" class="d-flex justify-content-center gap-3">
+      <a class="text-decoration-none" target="_blank" href="https://github.com/cheftonic92">Antonio Barroso Sáez</a>
+    </div>
+  </footer>
+
+  <script type="module" src="src/main.js"></script>
+</body>
 </html>
