@@ -6,9 +6,53 @@ const scissors = { name: 'scissors', enemieList: ['rock',    'spock'] }
 const lizard   = { name: 'lizard',   enemieList: ['scissors','rock'] }
 const spock    = { name: 'spock',    enemieList: ['paper',   'lizard'] }
 
+let cpuSelection = '';
+
 const optionList     = [rock, paper, scissors, lizard, spock]
 const _getRandomNumber =  (maxNumber) => Math.floor(Math.random() * maxNumber.length)
-const _setCpuSelection = () => optionList[_getRandomNumber(optionList)].name
+const _setCpuSelection = () => optionList[_getRandomNumber(optionList)].name;
+
+'¡Has perdido! 😢', '¡Has ganado 🎉'
+const DRAW = '¡Empate! 🤝';
+const WIN  = '¡Has ganado! 🎉';
+const LOSE = '¡Has perdido! 😢';
+
+const _getResult = (userSelection, cpuSelection) => {
+  if (userSelection.name === cpuSelection) {
+    return DRAW;
+  }
+
+  if (userSelection.enemieList.includes(cpuSelection)) {
+    return LOSE;
+  }
+
+  return WIN;
+}
+
+const _renderUserSelection = (userSelection) => {
+  const userSelectionElement = document.querySelector('#user-selection');
+  const userEmoji = emojiMap[userSelection.name];
+  userSelectionElement.textContent = `
+    ${userEmoji}
+  `;
+}
+const _renderCpuSelection = (cpuSelection) => {
+  const cpuSelectionElement = document.querySelector('#cpu-selection');
+  const cpuEmoji = emojiMap[cpuSelection];
+  cpuSelectionElement.textContent = `
+    ${cpuEmoji}
+  `;
+}
+
+const _renderResult = (result) => {
+  
+
+  const resultElement = document.querySelector('#result');
+  resultElement.textContent = `
+    ${result}
+  `;
+}
+
 
 const emojiMap = {
   rock:     '✊',
@@ -17,30 +61,12 @@ const emojiMap = {
   lizard:   '🫳',
   spock:    '🖖'
 }
-
-function playGame(userSelection) {
-  const cpuSelection = _setCpuSelection()
-
-  if (userSelection.name === cpuSelection) {
-    document.getElementById('user-selection').textContent = emojiMap[userSelection.name]
-    document.getElementById('cpu-selection').textContent = emojiMap[cpuSelection]	
-    document.getElementById('result').textContent =
-      '¡Empate! 🤝'
-    return
-  }
-
-  if (userSelection.enemieList.includes(cpuSelection)) {
-    document.getElementById('user-selection').textContent = emojiMap[userSelection.name]
-    document.getElementById('cpu-selection').textContent = emojiMap[cpuSelection]
-    document.getElementById('result').textContent =
-      '¡Has perdido! 😢'
-    return
-  }
-
-  document.getElementById('user-selection').textContent = emojiMap[userSelection.name]
-  document.getElementById('cpu-selection').textContent = emojiMap[cpuSelection]
-  document.getElementById('result').textContent =
-    '¡Has ganado 🎉'
+const playGame = (userSelection) => {
+  cpuSelection = _setCpuSelection()
+  _renderUserSelection(userSelection);
+  _renderCpuSelection(cpuSelection);
+  const result = _getResult(userSelection, cpuSelection);
+  _renderResult(result);
 }
 
 window.rock     = rock
